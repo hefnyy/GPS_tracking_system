@@ -23,8 +23,8 @@ float total_Distance=0.0;
 		
 		float Lon[50]={0};						//Array of float to save Longitude points in EEPROM to plot them on map;
 		float Lat[50]={0};						//Array of float to save Latitude points in EEPROM to plot them on map;
-		int k=0;								//Counter for Lat[]
-		int l=0;								//Counter for Lon[]
+		int k=0;							//Counter for Lat[]
+		int l=0;							//Counter for Lon[]
 
 		UART0_init();					//initialize UART0 for PC communication
 		GPIO_Init_PortF();				//initialize Port F for LEDs & Switches
