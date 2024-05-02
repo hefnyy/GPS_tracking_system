@@ -24,12 +24,12 @@ float total_Distance=0.0;
 		
 		float Lon[100]={0};				//EEPROM
 		float Lat[100]={0};				////EEPROM
-		int k=0;									//counter
-		int l=0;									//counter
+		int k=0;					//Counter for Lat[]
+		int l=0;					//Counter for Lon[]
 
-		UART0_init();
-		GPIO_Init_PortF();
-		UART1_Init();
+		UART0_init();					//initialize UART0 for PC communication
+		GPIO_Init_PortF();				//initialize Port F for LEDs & Switches
+		UART1_Init();					//initialize UART0 for GPS communication
 		
 		
 
