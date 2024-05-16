@@ -119,3 +119,9 @@ float ToDegree (float angle){
 	return (degree + (minutes/60) );
 }
 
+void ToDegree_modified (float *angle){
+	int degree = (int)(*angle)/100 ; 
+	float minutes = *angle -(float)degree*100;
+			*angle=degree + (minutes/60); 
+}
+
