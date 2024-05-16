@@ -46,3 +46,23 @@ def send_letter_to_com4(letter): #Maryam
     except serial.SerialException as e:
         print(f"Error: {e}")
 
+def string_to_arrays(s):  
+    # Split the string into individual float strings
+    float_strings = s.split(',')
+    
+    # Convert the float strings back to floats
+    float_values = [float(num) for num in float_strings if num]  # Ensure no empty strings are converted
+    
+    # Assuming the arrays should be split evenly, we determine the midpoint
+    midpoint = len(float_values) // 2
+    
+    # Split the float values into two arrays
+    latitudes = float_values[:midpoint]
+    longitudes = float_values[midpoint:]
+    
+    # Remove zero elements from the arrays
+    latitudes = [lat for lat in latitudes if lat != 0]
+    longitudes = [lon for lon in longitudes if lon != 0]
+    
+    return latitudes, longitudes
+
