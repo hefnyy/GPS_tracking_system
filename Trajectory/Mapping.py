@@ -102,4 +102,8 @@ def read_from_uart():  #Zeyad
     
     return received_string
 
-
+def main():    
+    
+    send_letter_to_com4('U')
+    received_data = receive_from_com('COM4', 9600)
+    print(received_data)
