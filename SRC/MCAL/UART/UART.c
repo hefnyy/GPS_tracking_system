@@ -37,7 +37,7 @@ void UART0_OutString(char *pt){
 		pt++;
 	}
 }
-void GetCommand(char *Command,int len ){ 		
+void GetCommand_UART0(char *Command,int len ){ 		
 		char character;
 		int i;
 		for(i=0 ; i< len; i++){
@@ -51,6 +51,7 @@ void GetCommand(char *Command,int len ){
 				break;		
 		}
 }
+
 
 void UART1_Init (void){// Should be called only once
 	SET_BIT(SYSCTL_RCGCUART_R , 1); // Activate UART1
@@ -96,6 +97,7 @@ void UART1_OutString(char *pt){
 		pt++;
 	}
 }
+
 
 
 
