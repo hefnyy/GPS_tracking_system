@@ -1,6 +1,9 @@
 import serial
+import time
+import folium
+import os
 
-def receive_from_com(port, baud_rate):  #Maryam
+def receive_from_com(port, baud_rate): 
     try:
         # Open serial port
         ser = serial.Serial(port, baud_rate)
@@ -24,7 +27,7 @@ def receive_from_com(port, baud_rate):  #Maryam
         if ser and ser.is_open:
             ser.close()
 
-def send_letter_to_com4(letter): #Maryam
+def send_letter_to_com4(letter):
     try:
         # Open the serial port
         ser = serial.Serial('COM4', 9600, timeout=1)
@@ -66,7 +69,7 @@ def string_to_arrays(s):
     
     return latitudes, longitudes
 
-def display_locations_on_map(latitudes, longitudes):    #Zeyad
+def display_locations_on_map(latitudes, longitudes):  
     # Create a map object with OpenStreetMap basemap
     map_obj = folium.Map(location=[latitudes[0], longitudes[0]], zoom_start=15, tiles='OpenStreetMap')
 
@@ -83,7 +86,7 @@ def display_locations_on_map(latitudes, longitudes):    #Zeyad
     map_obj.save(html_file_path)
     os.system(html_file_path)
 
-def read_from_uart():  #Zeyad
+def read_from_uart(): 
     # Set up the serial connection (modify parameters as per your setup)
     ser = serial.Serial('COM4', 9600, timeout=1)
     
