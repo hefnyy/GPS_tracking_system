@@ -113,6 +113,29 @@ float Get_Distance(float startLatitude, float startLongitude,float endLatitude, 
     return c * Earth_Radius;
 }
 
+float Get_Distance_modified(float startLatitude, float startLongitude,float endLatitude, float endLongitude)
+{
+		//UART_OutString("Distance\n");
+    // convert all coordinates from Degrees into Radians
+    float startLat = (startLatitude)* PI/180;
+    float startLong = (startLongitude)* PI/180;
+    float endLat = (endLatitude)* PI/180;
+    float endLong = (endLongitude)* PI/180;
+
+    // calculate latitude difference and longitude difference
+    float latDifference = endLat - startLat;
+    float longDifference = endLong - startLong;
+			
+		
+    //use Haversine formula
+    float a = sin(latDifference / 2) * sin(latDifference / 2) + cos(startLat) * cos(endLat)
+    * sin(longDifference / 2) * sin(longDifference / 2);
+    float c = 2 * atan2(sqrt(a), sqrt(1 - a));
+				
+    //Multipy by Earth's Radius to get the distance
+    return c * Earth_Radius;
+}
+
 float ToDegree (float angle){
 	int degree = (int)angle/100 ; 
 	float minutes = angle -(float)degree*100;
