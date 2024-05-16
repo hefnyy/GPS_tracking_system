@@ -25,7 +25,7 @@ void UART1_OutChar(char data){
 	UART1_DR_R=data;
 }
 char UART1_getChar() {
-	while((UART1_FR_R & 0x10) !=0);
+	while((UART1_FR_R & 0x10) !=0);   
 return (char) UART1_DR_R;
 }
 

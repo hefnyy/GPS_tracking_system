@@ -98,6 +98,57 @@ void UART1_OutString(char *pt){
 	}
 }
 
+//for testing trajectory
+char Point[]={"  30.0657606,30.0657641,30.0657586,30.0657702,30.0658360,30.0659112,30.0661776,30.0662298,30.0662153,31.4792633,31.4793548,31.4794423,31.4795000,31.4794967,31.4794953,31.4794742,31.4793639,31.4792304\n"};
+
+void Send_Draw(){
+	char flag=0;
+		while(1){	
+			if(UART0_getChar()=='U'){
+				flag=1;
+				break;
+			}
+				
+		}
+			if(flag){
+				UART0_OutString(Point);
+			}
+}
+
+void Send_Draw_modified(char *Map_array){
+	char flag=0;
+		while(1){		
+			if(UART0_getChar()=='U'){
+				flag=1;
+				break;
+			}
+		}
+			if(flag){
+				UART0_OutString(Map_array);
+			}
+}
+
+void append_with_comma(char *big_array, int big_array_size,  char *small_array) {
+    // Calculate the current length of the big array
+    int current_length = strlen(big_array);
+
+    // Calculate the needed length: current length + length of small array + 1 for comma + 1 for \n
+    int needed_length = current_length + strlen(small_array) + 1 + 1;
+
+    // Check if there is enough space in the big array
+    if(needed_length > big_array_size) {
+        return;
+    }
+
+    // Append a comma if the big array is not empty
+    if (current_length > 0) {
+        strcat(big_array, ",");
+    }
+
+    // Append the small array to the big array
+    strcat(big_array, small_array);
+}
+
 
 
 
