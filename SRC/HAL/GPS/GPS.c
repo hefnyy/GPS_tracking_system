@@ -48,8 +48,8 @@ void GPS_read(float *Lat ,float *Long , float *Speed){
 
         if(j==0 || j==1){
             continue;
-            //"$GPRMC,203522.00,A,30.06416667,N,31.28055556,W,0.004,133.4,130522,0.0,E,D*2B"
-        }																							// 	0				1				2				3			4				5			6		7			8			9			10
+            
+        }																						
         else if(j==2 && *token != 'A'){
             j=-1;
             strcpy(gps,"");
